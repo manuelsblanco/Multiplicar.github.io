@@ -54,14 +54,12 @@ asignar(){
 
   let value = this.tablas[index];
   this.tablas.splice(index, 1);
-  console.log("el valor asignado es "+ value);
   return value;
 }
 
 multiplicar(){
     if(this.tablas.length>0){
       this.operacion = this.asignar()?.toString()!;
-      console.log("El largo del array es "+ this.tablas.length);
     }
     else{
       this.operacion = "No hay números que multiplicar"
@@ -73,16 +71,11 @@ multiplicar(){
   calcular() {
     const inputElement = document.getElementById("resultado") as HTMLInputElement;
     this.resultado = Number(inputElement.value);
-    console.log("Indice 0 "+ (Number(this.operacion[0])));
-    console.log("Indice 2 "+ (Number(this.operacion[2])));
-    console.log("La respuesta es "+ this.resultado);
     if(((Number(this.operacion[0]))*(Number(this.operacion[2]))==this.resultado)){
       this.correctas++;
-      console.log("Respuestas correctas "+this.correctas);
     }
     else{
     this.incorrectas++;
-    console.log("Respuestas incorrectas "+this.incorrectas)
     }
     inputElement.value = "";
     this.multiplicar();

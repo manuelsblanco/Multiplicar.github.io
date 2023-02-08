@@ -8,5 +8,5 @@
 <div *ngIf="desempeno">
   <p>Tuviste {{correctas}} respuestas correctas</p>
   <p>Tuviste {{incorrectas}} respuestas incorrectas</p>
-  <p>Un porcentaje de acierto de {{porcentaje}}%</p>
+  <p>Un porcentaje de acierto de {{porcentaje.toString().slice(0,2)}}%</p>
 </div>

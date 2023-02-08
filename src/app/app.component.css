@@ -4,4 +4,10 @@ p,h1,h2{
 #operacion{
   text-align: center;
 }
+#resultado{
+  width: 5em;
+}
+#calcular{
+  margin: 10px;
+}
 

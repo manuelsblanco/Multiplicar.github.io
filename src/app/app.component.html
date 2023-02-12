@@ -1,11 +1,11 @@
 <h1>Multiplicar</h1>
 <h2>Vamos a practicar las tablas</h2>
-<p>{{operacion}}</p>
+<p aria-live="polite" aria-atomic="true">{{operacion}}</p>
 <div *ngIf="!desempeno" id="operacion">
-  <input type="number" name="resultado" id="resultado" inputmode="tel" required>
+  <input type="number" name="resultado" id="resultado" inputmode="number" required>
   <button id="calcular" (click)="calcular()">Calcular</button>
 </div>
-<div *ngIf="desempeno">
+<div aria-live="polite" aria-atomic="true" *ngIf="desempeno">
   <p>Tuviste {{correctas}} respuestas correctas</p>
   <p>Tuviste {{incorrectas}} respuestas incorrectas</p>
   <p>Un porcentaje de acierto de {{porcentaje.toString().slice(0,2)}}%</p>

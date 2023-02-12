@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   }
 
 title = 'Multiplicar';
-
+char: any;
 tabla2: string[] = ["2x1","2x2","2x3","2x4","2x5","2x6","2x7","2x8","2x9"];
 tabla3: string[] = ["3x1","3x2","3x3","3x4","3x5","3x6","3x7","3x8","3x9"];
 tabla4: string[] = ["4x1","4x2","4x3","4x4","4x5","4x6","4x7","4x8","4x9"];
@@ -36,6 +36,11 @@ porcentaje: number = 0;
 operacion: string="";
 resultado:number = 0;
 desempeno: boolean = false;
+timeoutId: number = 0;
+ctx: any;
+config: any;
+chartData: number[] = [];
+chartDataLabels: string[] = [];
 
 getRandomElement(arr: any[]) {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -68,18 +73,30 @@ multiplicar(){
 
   }
 
-  calcular() {
-    const inputElement = document.getElementById("resultado") as HTMLInputElement;
-    this.resultado = Number(inputElement.value);
-    if(((Number(this.operacion[0]))*(Number(this.operacion[2]))==this.resultado)){
-      this.correctas++;
-    }
-    else{
-    this.incorrectas++;
-    }
-    inputElement.value = "";
-    this.multiplicar();
+
+
+calcular() {
+  const inputElement = document.getElementById("resultado") as HTMLInputElement;
+  this.resultado = Number(inputElement.value);
+  if(((Number(this.operacion[0]))*(Number(this.operacion[2]))==this.resultado)){
+    this.correctas++;
+    const button = document.getElementById("calcular")!;
+    button.style.backgroundColor = "green";
   }
+  else{
+    this.incorrectas++;
+    const button = document.getElementById("calcular")!;
+    button.style.backgroundColor = "red";
+  }
+  inputElement.value = "";
+  this.multiplicar();
+  clearTimeout(this.timeoutId);
+  this.timeoutId = (Number(setTimeout(() => {
+    this.calcular();
+  }, 10000)));
+}
+
+
   porcentajes(correctas: number, incorrectas: number, respuestas: Array<any>): number {
     const totalRespuestas = correctas + incorrectas;
     const porcentajeCorrectas = (correctas / totalRespuestas) * 100;

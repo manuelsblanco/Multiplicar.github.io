@@ -2,7 +2,7 @@
 <h2>Vamos a practicar las tablas</h2>
 <p aria-live="polite" aria-atomic="true">{{operacion}}</p>
 <div *ngIf="!desempeno" id="operacion">
-  <input type="number" name="resultado" id="resultado" inputmode="number" required>
+  <input type="number" name="resultado" id="resultado" inputmode="tel" required>
   <button id="calcular" (click)="calcular()">Calcular</button>
 </div>
 <div aria-live="polite" aria-atomic="true" *ngIf="desempeno">

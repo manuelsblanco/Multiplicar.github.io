@@ -89,11 +89,13 @@ calcular() {
     this.correctas++;
     const button = document.getElementById("calcular")!;
     button.style.backgroundColor = "green";
+    button.style.color = "yellow";
   }
   else{
     this.incorrectas++;
     const button = document.getElementById("calcular")!;
     button.style.backgroundColor = "red";
+    button.style.color = "white";
   }
   inputElement.value = "";
   this.multiplicar();

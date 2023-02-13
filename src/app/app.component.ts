@@ -10,6 +10,10 @@ export class AppComponent implements OnInit {
     this.multiplicar();
   }
 
+  constructor(){
+    this.focus();
+  }
+
 title = 'Multiplicar';
 char: any;
 tabla2: string[] = ["2x1","2x2","2x3","2x4","2x5","2x6","2x7","2x8","2x9"];
@@ -73,9 +77,12 @@ multiplicar(){
 
   }
 
-
+focus(){
+  document.getElementById("resultado")?.focus();
+}
 
 calcular() {
+  this.focus();
   const inputElement = document.getElementById("resultado") as HTMLInputElement;
   this.resultado = Number(inputElement.value);
   if(((Number(this.operacion[0]))*(Number(this.operacion[2]))==this.resultado)){

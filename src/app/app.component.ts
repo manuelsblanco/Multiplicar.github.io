@@ -25,14 +25,16 @@ tabla7: string[] = ["7x1","7x2","7x3","7x4","7x5","7x6","7x7","7x8","7x9"];
 tabla8: string[] = ["8x1","8x2","8x3","8x4","8x5","8x6","8x7","8x8","8x9"];
 tabla9: string[] = ["9x1","9x2","9x3","9x4","9x5","9x6","9x7","9x8","9x9"];
 
-tablas: string[] = ["2x1","2x2","2x3","2x4","2x5","2x6","2x7","2x8","2x9",
-                    "3x1","3x2","3x3","3x4","3x5","3x6","3x7","3x8","3x9",
-                    "4x1","4x2","4x3","4x4","4x5","4x6","4x7","4x8","4x9",
-                    "5x1","5x2","5x3","5x4","5x5","5x6","5x7","5x8","5x9",
-                    "6x1","6x2","6x3","6x4","6x5","6x6","6x7","6x8","6x9",
-                    "7x1","7x2","7x3","7x4","7x5","7x6","7x7","7x8","7x9",
-                    "8x1","8x2","8x3","8x4","8x5","8x6","8x7","8x8","8x9",
-                    "9x1","9x2","9x3","9x4","9x5","9x6","9x7","9x8","9x9"];
+tablas: string[] = ["2x2","2x3","2x4","2x5","2x6","2x7","2x8","2x9",
+                    "3x2","3x3","3x4","3x5","3x6","3x7","3x8","3x9",
+                    "4x2","4x3","4x4","4x5","4x6","4x7","4x8","4x9",
+                    "5x2","5x3","5x4","5x5","5x6","5x7","5x8","5x9",
+                    "6x2","6x3","6x4","6x5","6x6","6x7","6x8","6x9",
+                    "7x2","7x3","7x4","7x5","7x6","7x7","7x8","7x9",
+                    "8x2","8x3","8x4","8x5","8x6","8x7","8x8","8x9",
+                    "9x2","9x3","9x4","9x5","9x6","9x7","9x8","9x9"];
+
+erroneas: string[] = [];
 
 correctas: number = 0;
 incorrectas: number = 0;
@@ -92,6 +94,7 @@ calcular() {
     button.style.color = "yellow";
   }
   else{
+    this.erronea((this.operacion[0].toString()+"x"+this.operacion[2].toString()).toString());
     this.incorrectas++;
     const button = document.getElementById("calcular")!;
     button.style.backgroundColor = "red";
@@ -104,6 +107,9 @@ calcular() {
     this.calcular();
   }, 10000)));
 }
+  erronea(arg0: string) {
+    this.erroneas.push(arg0);
+  }
 
 
   porcentajes(correctas: number, incorrectas: number, respuestas: Array<any>): number {

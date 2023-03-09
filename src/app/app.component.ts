@@ -116,7 +116,12 @@ calcular() {
     const totalRespuestas = correctas + incorrectas;
     const porcentajeCorrectas = (correctas / totalRespuestas) * 100;
     this.desempeno = true;
-    return porcentajeCorrectas;
+    if(porcentajeCorrectas==100){
+      return (Number) (porcentajeCorrectas.toString().slice(0, 3));
+    }
+    else{
+      return (Number) (porcentajeCorrectas.toString().slice(0, 2));
+    }
   }
 
 }
